@@ -19,10 +19,10 @@ docker run -v $HOME/Documents:/home/libreoffice/Documents:rw -v /tmp/.X11-unix:/
 FAQ
 ---
 Note: If you receive the following Gtk error:
-```bash
+```
 Gtk-WARNING **: cannot open display: unix:0.0
 ```
 Simply allow the docker user to communicate with your X session
-```bash
+```
 xhost +local:docker
 ```
