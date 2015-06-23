@@ -1,11 +1,14 @@
 LibreOffice
 ===========
 
-Unofficial build of LibreOffice 4.2.7 running within a docker container and rendered by the local X Server.
+Unofficial build of LibreOffice 4.2.8 running within a docker container and rendered by the local X Server.
 
 Changelog
 ---------
 ```
+v1.1
+* Version bounced to 4.2.8
+
 v1.0
 * User permissions now correlate between host and container. This allows LibreOffice documents to be saved back to the host system by passing in the local users uid/gid as environment variables.
 ```
@@ -13,7 +16,13 @@ v1.0
 Launch Command
 ---------------
 ```
-docker run -v $HOME/Documents:/home/libreoffice/Documents:rw -v /tmp/.X11-unix:/tmp/.X11-unix -e uid=$(id -u) -e gid=$(id -g) -e DISPLAY=unix$DISPLAY --name libreoffice chrisdaish/libreoffice
+docker run  -v $HOME/Documents:/home/libreoffice/Documents:rw \
+            -v /tmp/.X11-unix:/tmp/.X11-unix \
+            -e uid=$(id -u) \
+            -e gid=$(id -g) \
+            -e DISPLAY=unix$DISPLAY \
+            --name libreoffice \
+            chrisdaish/libreoffice
 ```
 
 FAQ
