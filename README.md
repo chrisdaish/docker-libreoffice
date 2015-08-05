@@ -6,8 +6,11 @@ Unofficial build of LibreOffice 5.0.0.5 running within a docker container and re
 Changelog
 ---------
 ```
-v1.1
+v1.2
 * Updated image to LibreOffice 5.
+
+v1.1
+* Updated image to LibreOffice 4.2.8
 
 v1.0
 * User permissions now correlate between host and container. This allows LibreOffice documents to be saved back to the host system by passing in the local users uid/gid as environment variables.
@@ -16,7 +19,13 @@ v1.0
 Launch Command
 ---------------
 ```
-docker run -v $HOME/Documents:/home/libreoffice/Documents:rw -v /tmp/.X11-unix:/tmp/.X11-unix -e uid=$(id -u) -e gid=$(id -g) -e DISPLAY=unix$DISPLAY --name libreoffice chrisdaish/libreoffice
+docker run  -v $HOME/Documents:/home/libreoffice/Documents:rw \
+            -v /tmp/.X11-unix:/tmp/.X11-unix \
+            -e uid=$(id -u) \
+            -e gid=$(id -g) \
+            -e DISPLAY=unix$DISPLAY \
+            --name libreoffice \
+            chrisdaish/libreoffice
 ```
 
 FAQ
