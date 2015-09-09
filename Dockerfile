@@ -1,10 +1,8 @@
-FROM ubuntu:14.04
+FROM ubuntu:14.04.3
 
 MAINTAINER Chris Daish <chrisdaish@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV LIBREOFFICEPACKAGE LibreOffice_5.0.0_Linux_x86-64_deb.tar.gz
-ENV LIBREOFFICEDIR LibreOffice_5.0.0.5_Linux_x86-64_deb
 
 RUN useradd -m libreoffice; \
     apt-get update \
@@ -14,7 +12,10 @@ RUN useradd -m libreoffice; \
                                                   openjdk-7-jre \
     && rm -rf /var/lib/apt/lists/*
 
-RUN wget -q http://mirror.switch.ch/ftp/mirror/tdf/libreoffice/stable/5.0.0/deb/x86_64/$LIBREOFFICEPACKAGE -O /tmp/$LIBREOFFICEPACKAGE \
+ENV LIBREOFFICEPACKAGE LibreOffice_5.0.1_Linux_x86-64_deb.tar.gz
+ENV LIBREOFFICEDIR LibreOffice_5.0.1.2_Linux_x86-64_deb
+
+RUN wget -q http://mirror.switch.ch/ftp/mirror/tdf/libreoffice/stable/5.0.1/deb/x86_64/$LIBREOFFICEPACKAGE -O /tmp/$LIBREOFFICEPACKAGE \
     && mkdir /tmp/LibreOffice \
     && tar -xzf /tmp/$LIBREOFFICEPACKAGE -C /tmp/LibreOffice \
     && dpkg -i /tmp/LibreOffice/$LIBREOFFICEDIR/DEBS/*.deb \
