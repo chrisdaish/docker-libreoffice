@@ -1,11 +1,14 @@
 # LibreOffice
 
-Unofficial build of LibreOffice 5.0.1 running within a docker container and
+Unofficial build of LibreOffice 5.0.4 running within a docker container and
 rendered by the local X Server.
 
 ## Changelog
 
 ```
+v1.4
+* Updated image to LibreOffice 5.0.4.
+
 v1.3
 * Updated image to LibreOffice 5.0.1.
 
