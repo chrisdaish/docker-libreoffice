@@ -12,15 +12,12 @@ RUN useradd -m libreoffice; \
                                                   openjdk-7-jre \
     && rm -rf /var/lib/apt/lists/*
 
-ENV LIBREOFFICEPACKAGE LibreOffice_5.2.1_Linux_x86-64_deb.tar.gz
-ENV LIBREOFFICEDIR LibreOffice_5.2.1.2_Linux_x86-64_deb
-
-RUN wget -q http://mirror.switch.ch/ftp/mirror/tdf/libreoffice/stable/5.2.1/deb/x86_64/$LIBREOFFICEPACKAGE -O /tmp/$LIBREOFFICEPACKAGE \
-    && mkdir /tmp/LibreOffice \
-    && tar -xzf /tmp/$LIBREOFFICEPACKAGE -C /tmp/LibreOffice \
-    && dpkg -i /tmp/LibreOffice/$LIBREOFFICEDIR/DEBS/*.deb \
-    && rm -f /tmp/$LIBREOFFICEPACKAGE \
-    && rm -rf /tmp/LibreOffice
+RUN wget -q http://download.documentfoundation.org/libreoffice/stable/5.3.2/deb/x86_64/LibreOffice_5.3.2_Linux_x86-64_deb.tar.gz -O /tmp/pack.tar.gz \
+     && mkdir /tmp/LibreOffice \
+     && tar -xzf /tmp/pack.tar.gz -C /tmp/LibreOffice \
+     && dpkg -i /tmp/LibreOffice/LibreOffice_5.3.2.2_Linux_x86-64_deb/DEBS/*.deb \
+     && rm -f /tmp/pack.tar.gz \
+     && rm -rf /tmp/LibreOffice
 
 COPY start-libreoffice.sh /tmp/
 
