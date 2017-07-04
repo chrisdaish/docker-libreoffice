@@ -6,6 +6,9 @@ rendered by the local X Server.
 ## Changelog
 
 ```
+v1.6
+* Updated image to LibreOffice 5.3.4.
+
 v1.5
 * Updated image to LibreOffice 5.1.0.
 
